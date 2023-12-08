@@ -8,7 +8,7 @@ exports.up = function (knex) {
   return knex.schema.createTable('pet_tracker', (table) => {
     table.increments(); // this is the id
     table.string('pet_name'); // text
-    table.string('picture_url'); // text
+    table.string('picture_url', 5000); // text
     table.string('species'); // text
     table.boolean('is_friendly').defaultTo(false); // boolean, optional default
 

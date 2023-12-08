@@ -9,16 +9,9 @@ const publicDir = path.join(__dirname, '..', 'public');
 const staticAssests = express.static(publicDir);
 app.use(staticAssests);
 
-
-const pets = [{pet_name: 'kitty', picture_url: '', species: 'cat', is_friendly: false}];
-
 app.get('/', (req, res) => {
     res.send('Server is live').status(200);
 });
-
-// app.get('/getpets', (req, res) => {
-//     res.send(pets).status(200);
-// });
 
 app.get('/getpets', async (req, res) => {
     const data = await petHelper.getAllPets();
@@ -26,20 +19,24 @@ app.get('/getpets', async (req, res) => {
     res.send(data).status(200);
 })
 
-app.post('/addpets', (req, res) => {
+app.post('/addpets', async (req, res) => {
     try {
         const {pet_name, picture_url, species, is_friendly} = req.body;
-        const currPet = {
-            pet_name,
-            picture_url,
-            species,
-            is_friendly
-        }
-        pets.push(currPet);
-        res.send(currPet).status(200);
+        const data = await petHelper.postPets(pet_name, picture_url, species, is_friendly);
+        console.log(data);
+        res.send(data).status(200);
     } catch(err) {
         res.send(err).status(404);
     }
+});
+
+app.delete('/deletepets:id', async (req, res) => {
+    const {id} = req.params;
+    const data = await petHelper.deletePets(id);
+    const foundPet = pets.findIndex(pet => Number(id) === pet.id);
+    pets.splice(foundPet, 1);
+    console.log(id)
+    res.send('deleted').status(200);
 });
 
 app.listen(PORT, () => {

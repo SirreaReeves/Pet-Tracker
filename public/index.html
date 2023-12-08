@@ -13,10 +13,10 @@
        <h1>Add a new Pet!</h1>
 
        <label for="pet-name" class="required">Pet Name:</label>
-       <input type="text" name="pet-name" id="pet-name" required>
+       <input type="text" name="pet_name" id="pet-name" required>
 
        <label for="pet-picture" class="required">Pet Picture</label>
-       <input type="text" name="pet-picture" id="pet-picture" placeholder="Picture URL" required>
+       <input type="text" name="picture_url" id="pet-picture" placeholder="Picture URL" required>
 
        <fieldset>
         <legend class="required">Species</legend>
@@ -31,35 +31,11 @@
        </fieldset>
 
        <label for="friendly"> Are They Friendly?</label>
-       <input type="checkbox" name="friendly" id="friendly">
+       <input type="checkbox" name="is_friendly" id="friendly">
 
        <button type="submit">Add Pet!</button>
     </form>
     <h2>Pet List</h2>
-    <ul id="pet-list">
-        <li>
-            <h3>Fluffy</h3>
-            <img src="./images/cat_pet-tracker.jpeg" alt="A Picture of a Black Cat">
-            <p>Not so friendly...</p>
-            <p>Species: Cat</p>
-            <button type="button" class="remove-button">Remove</button>
-        </li>
-
-        <li>
-            <h3>Rex</h3>
-            <img src="./images/dog_pet-tracker.jpeg" alt="A Picture of a White Dog">
-            <p>Friendly!</p>
-            <p>Species: Dog</p>
-            <button type="button" class="remove-button">Remove</button>
-        </li>
-
-        <li>
-            <h3>Screamin Jean</h3>
-            <img src="./images/bird_pet-tracker.jpeg" alt="A Picture of a Green Bird">
-            <p>Not so friendly...</p>
-            <p>Species: Bird</p>
-            <button type="button" class="remove-button">Remove</button>
-        </li>
-    </ul>
+    <ul id="pet-list"></ul>
 </body>
 </html>
