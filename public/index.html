@@ -9,8 +9,8 @@
 </head>
 <body>
     <h1>Pet Tracker</h1>
-    <form action="" id="pet-form">
-       <h1>Add a new Pet!</h1>
+    <form action="" id="pet-form" aria-labelledby="pet-form">
+       <h1 id="pet-form" aria-labelledby="pet-form">Add a new Pet!</h1>
 
        <label for="pet-name" class="required">Pet Name:</label>
        <input type="text" name="pet_name" id="pet-name" required>
@@ -30,12 +30,12 @@
         <label for="bird">Bird</label>
        </fieldset>
 
-       <label for="friendly"> Are They Friendly?</label>
+       <label for="friendly">Are They Friendly?</label>
        <input type="checkbox" name="is_friendly" id="friendly">
 
        <button type="submit">Add Pet!</button>
     </form>
-    <h2>Pet List</h2>
-    <ul id="pet-list"></ul>
+    <h2 id="pet-list" aria-labelledby="pet-list">Pet List</h2>
+    <ul id="pet-list" aria-labelledby="pet-list"></ul>
 </body>
 </html>
